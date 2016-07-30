@@ -56,6 +56,64 @@ img {
 	background-color: rgb(221, 82, 77);
 }
 
+.mui-numbox [class*=numbox-btn] {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 100%;
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+	width: 40px;
+	height: 100%;
+	padding: 0;
+	color: #555;
+	border: none;
+	border-radius: 0;
+	background-color: #f9f9f9;
+}
+
+.mui-btn {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42;
+	position: relative;
+	display: inline-block;
+	margin-bottom: 0;
+	padding: 6px 12px;
+	cursor: pointer;
+	-webkit-transition: all;
+	transition: all;
+	-webkit-transition-timing-function: linear;
+	transition-timing-function: linear;
+	-webkit-transition-duration: .2s;
+	transition-duration: .2s;
+	text-align: center;
+	vertical-align: top;
+	white-space: nowrap;
+	color: #333;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	background-color: #fff;
+	background-clip: padding-box;
+}
+
+.mui-numbox .mui-input-numbox,
+.mui-numbox .mui-numbox-input {
+	display: inline-block;
+	overflow: hidden;
+	height: 100%;
+	margin: 0;
+	text-align: center;
+	text-overflow: ellipsis;
+	word-break: normal;
+	border: none!important;
+	border-radius: 0!important;
+}
+
 .content {
 	background-color: #D9D9D9;
 }

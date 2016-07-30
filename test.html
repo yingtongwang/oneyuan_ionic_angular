@@ -67,6 +67,28 @@
 			});
 
 			app.controller('AppCtrl', ['$scope', '$ionicPopover', '$timeout', function($scope, $ionicPopover, $timeout) {
+				//				$scope.quantity = "1";numbox-min numbox-max
+				$scope.numAdd = function() {
+					var num_add = parseInt($scope.quantity);
+					if ($scope.quantity == "") {
+						num_add = 1;
+					}
+					if (num_add <= $scope.max) {
+						$scope.quantity = num_add + 1;
+					}
+					if (num_add == $scope.max) {
+						$scope.mySwitch = false;
+					}
+				}
+				$scope.numDec = function() {
+					var num_dec = parseInt($scope.quantity) - 1;
+					if (num_dec >= $scope.min) {
+						$scope.quantity = num_dec;
+					}
+					if (num_dec == $scope.min) {
+						$scope.mySwitch = true;
+					}
+				}
 
 				$scope.showUpSheet = function() {
 					MY_FUNCTION.showUpSheet({
@@ -114,7 +136,6 @@
 				left: 0px;
 				width: 100%;
 				max-width: 640px;
-				
 			}
 			
 			.button {
@@ -138,10 +159,12 @@
 				line-height: 40px;
 				color: white;
 			}
+			
+			
 		</style>
 	</head>
 
-	<body ng-app="ionicApp" ng-controller="AppCtrl">
+	<body ng-app="ionicApp" ng-controller="AppCtrl" ng-init="quantity=1;min=1;max=9;mySwitch=true">
 		<!--顶部-->
 		<div class="bar bar-header bar-dark">
 			<button ng-click="openPopover($event)" class="button button-icon icon ion-chevron-left"></button>
@@ -180,15 +203,15 @@
 					<button class="button button-light">20次</button>
 				</div>
 				<div class="item" style="text-align: center;border-width:0px">
-					<div class="mui-numbox" data-numbox-min="1" data-numbox-max="9" style="width: 260px; height: 32px;">
-						<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-						<input id="input_participate_count" class="mui-input-numbox" style="width: 80px;" readonly="true" type="number" value="5">
-						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+					<div class="mui-numbox" numbox-min="{{min}}" numbox-max="{{max}}}" style="width:100% ; text-align: center; height: 32px;">
+						<input type="button" class="mui-btn mui-btn-numbox-minus" ng-click="numDec()" type="button" ng-disabled="mySwitch" value="-"></input>
+						<input id="input_participate_count" class="mui-input-numbox"  readonly="true" type="number" value="{{quantity}}">
+						<input type="button" class="mui-btn mui-btn-numbox-plus" ng-click="numAdd()" ng-disabled="!mySwitch" type="button" value=" + "></button>
 					</div>
 				</div>
-				<div class="item" style="padding: 0px; height: 40px;">
-					<div onclick="participate()" class="topaydiv">立即夺宝</div>
-					<div style="float: right; padding-right: 10px; text-align: center;line-height:40px;vertical-align: middle;" id="total">合计：￥5</div>
+				<div class="item " style="padding: 0px; height: 40px; ">
+					<div onclick="participate() " class="topaydiv ">立即夺宝</div>
+					<div style="float: right; padding-right: 10px; text-align: center;line-height:40px;vertical-align: middle; " id="total ">合计：￥5</div>
 				</div>
 			</div>
 
