@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+		<script src="lib/ionic/js/ionic.bundle.js"></script>
+		<script type="text/javascript">
+			var app = angular.module('ionicApp', ['ionic'])
+			app.controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
+				//为了验证属性active-slide定义的模型，angularjs是mvc模式
+				$scope.carouseList = [{
+					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: '5371a63759ed6.jpg'
+				}, {
+					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: '5371a63759ed6.jpg'
+				}, {
+					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: '5371a63759ed6.jpg'
+				}];
+				$scope.startApp = function() {
+					$state.go('main');
+				};
+				$scope.next = function() {
+					$ionicSlideBoxDelegate.next();
+				};
+				$scope.previous = function() {
+					$ionicSlideBoxDelegate.previous();
+				};
+
+				// Called each time the slide changes
+				$scope.slideChanged = function(index) {
+					$scope.slideIndex = index;
+				};
+			});
+		</script>
+		<style>
+			body {
+				cursor: url('http://ionicframework.com/img/finger.png'), auto;
+			}
+			
+			.slider {
+				height: 100%;
+			}
+			
+			img {
+				max-height: 720px;
+				max-width: 640px;
+				width: expression(this.width> 640 && this.height < this.width ? 640: true);
+				height: expression(this.height> 720 ? 720: true);
+			}
+			
+			.slider-slide {
+				color: #000;
+				background-color: #fff;
+				text-align: center;
+				font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-weight: 300;
+			}
+			
+			.pane {
+				position: initial;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="bar bar-header bar-dark">
+			<button class="button button-icon icon ion-chevron-left"></button>
+			<div class="h1 title">产品详情</div>
+			<button class="button button-icon icon ion-share"></button>
+		</div>
+		<ion-content ng-app="ionicApp" zooming="true" direction="y" scrollbar-y="false" class="content has-header">
+			<div class="content" ng-controller="IntroCtrl">
+				<ion-slide-box style="max-width: 640px;max-height: 280px;" on-slide-changed="slideChanged(index)" active-slide="slideIndex" auto-play="true" slide-interval="4000" does-continue="true" show-pager="true">
+					<ion-slide ng-repeat="list in carouseList">
+						<a ng-href="{{list.url}}" target="_blank"><img style="width:100%; height:100%; " ng-src="{{list.img_id}}" alt="{{list.name}}" class="other-img"></a>
+					</ion-slide>
+				</ion-slide-box>
+			</div>
+			<div ng-controller="actionsheetCtl">
+				<div class="list">
+					<div class="item item-text-wrap" style="border: 0;">
+						<a id="product_name" style="color: #333333;"><a style=" font-size: 10px; padding: 2px; background-color: red; color: white;">进行中</a>&nbsp;类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱</a>
+					</div>
+
+					<div class="item" class="mui-table-view-cell" id="notrevealedstate" style="visibility: visible;">
+						<div>
+							<div style="margin-bottom: 5px;">
+								<a id="activity_code" style="size: 11px; color: #666666;">期号：5b5ac805-62a4-6acc-9ae5-54bafc8977dd</a>
+							</div>
+							<p id="activity_progress" style="height: 10px;border-radius:5px" class="mui-progressbar mui-progressbar-danger" data-progress="50">
+								<span style="border-radius: 4px; transform: translate3d(-100%, 0px, 0px); background-color: rgb(221, 82, 77);"></span>
+							</p>
+							<div style="margin-top: 5px;">
+								<a id="total_number" style="color: #333333;">总需6000人次</a>
+								<a id="left_number" style="color: red; float: right;">6000</a>
+								<a style="float: right;">剩余:&nbsp;</a>
+							</div>
+						</div>
+					</div>
+					<div class="item item-icon-right" id="norevealedstate" style="visibility: visible;padding-right: 35px;">
+						<div>
+							<a id="my_total_number" style="color: #333333;" class="mui-navigate-right">您已购买0人次</a>
+							<a id="my_luckly_code" style="float: right;" href="../activity/myOrder.htm">查看夺宝号</a>
+							<i class="icon ion-chevron-right" style="font-size: 20px;"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ion-content>
+	</body>
+
+</html>
