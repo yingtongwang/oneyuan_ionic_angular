@@ -10,39 +10,39 @@
 			app.controller('actionsheetCtl', ['$scope', '$timeout', '$http', '$ionicScrollDelegate', function($scope, $timeout, $http, $ionicScrollDelegate) {
 				$scope.carouseList = [{
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'product.html',
 					name: '5371a63759ed6.jpg'
 				}, {
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'product.html',
 					name: '5371a63759ed6.jpg'
 				}, {
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'product.html',
 					name: '5371a63759ed6.jpg'
 				}, {
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'product.html',
 					name: '5371a63759ed6.jpg'
 				}, {
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'product.html',
 					name: '5371a63759ed6.jpg'
 				}, {
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'product.html',
 					name: '5371a63759ed6.jpg'
 				}, {
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'product.html',
 					name: '5371a63759ed6.jpg'
 				}, {
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'product.html',
 					name: '5371a63759ed6.jpg'
 				}, {
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					img_id: 'product.html',
 					name: '5371a63759ed6.jpg'
 				}];
 				$scope.onClick = function(text) {
@@ -140,7 +140,7 @@
 				<div class="row row-wrap">
 					<div class="col col-50" ng-repeat="list in carouseList">
 						<div class="item item-image">
-							<a href="#"><img src="{{list.img_id}}"></a>
+							<a href="{{list.img_id}}"><img src="{{list.url}}"></a>
 						</div>
 						<a class="item item-left-editable " href="#">
 								{{list.name}}
