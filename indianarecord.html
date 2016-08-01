@@ -16,75 +16,66 @@
 				};
 			})
 
-			.controller('HomeCtrl', function($scope, $timeout, $ionicModal, $ionicActionSheet) {
+			.controller('HomeCtrl', function($scope, $timeout, $ionicActionSheet) {
 				$scope.items = [];
-
-				$ionicModal.fromTemplateUrl('newTask.html', function(modal) {
-					$scope.settingsModal = modal;
-				});
-
-				var removeItem = function(item, button) {
-					$ionicActionSheet.show({
-						buttons: [],
-						destructiveText: 'Delete Task',
-						cancelText: 'Cancel',
-						cancel: function() {
-							return true;
-						},
-						destructiveButtonClicked: function() {
-							$scope.items.splice($scope.items.indexOf(item), 1);
-							return true;
-						}
-					});
-				};
-
-				var completeItem = function(item, button) {
-					item.isCompleted = true;
-				};
-
-				$scope.onReorder = function(el, start, end) {
-					ionic.Utils.arrayMove($scope.items, start, end);
-				};
-
-				$scope.onRefresh = function() {
-					console.log('ON REFRESH');
-
-					$timeout(function() {
-						$scope.$broadcast('scroll.refreshComplete');
-					}, 1000);
-				}
-
-				$scope.removeItem = function(item) {
-					removeItem(item);
-				};
-
-				$scope.newTask = function() {
-					$scope.settingsModal.show();
-				};
+				$scope.carouseList = [{
+					id: '第一期',
+					time: '2012-10-15 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb',
+					code: '001',
+					num: '1',
+					opentime: '2012-10-16 20:12:00'
+				}, {
+					id: '第二期',
+					time: '2012-10-05 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb2',
+					code: '002',
+					num: '1',
+					opentime: '2012-10-17 20:12:00'
+				}, {
+					id: '第三期',
+					time: '2012-10-06 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb3',
+					code: '003',
+					num: '1',
+					opentime: '2012-10-18 20:12:00'
+				}, {
+					id: '第四期',
+					time: '2012-10-07 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb4',
+					code: '004',
+					num: '1',
+					opentime: '2012-10-19 20:12:00'
+				}, {
+					id: '第五期',
+					time: '2012-10-08 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb5',
+					code: '005',
+					num: '1',
+					opentime: '2012-10-20 20:12:00'
+				}, {
+					id: '第六期',
+					time: '2012-10-09 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb6',
+					code: '006',
+					num: '1',
+					opentime: '2012-10-21 20:12:00'
+				}];
 
 				// Create the items
 				for(var i = 0; i < 25; i++) {
 					$scope.items.push({
-						title: 'Task ' + (i + 1),
-						buttons: [{
-							text: 'Done',
-							type: 'button-success',
-							onButtonClicked: completeItem,
-						}, {
-							text: 'Delete',
-							type: 'button-danger',
-							onButtonClicked: removeItem,
-						}]
+						title: 'Task ' + (i + 1)
 					});
 				}
 
 			})
-
-			.controller('TaskCtrl', function($scope) {
-				$scope.close = function() {
-					$scope.modal.hide();
-				}
-			});
 		</script>
 	</head>
 
@@ -93,52 +84,57 @@
 			<button class="button button-icon icon ion-chevron-left" onclick="javascript: history.go(-1);"></button>
 			<div class="h1 title">夺宝记录</div>
 		</div>
-		<div class="list has-header" style="margin-bottom: 8px;">
+		<div class="bar bar-subheader">
+			<h2 class="title" style="text-align: left;">夺宝币</h2>
+			<h2 class="title" style="text-align: right;">***&nbsp;<i class="icon ion-chevron-right" style="font-size: 20px;"></i></h2>
+
+		</div>
+		<!--<div class="list has-header" style="margin-bottom: 8px;">
 			<a class="item item-icon-right" style="padding-right: 40px;">
 				夺宝币
 				<span class="item-note">**</span>
 				<i class="icon ion-chevron-right" style="font-size: 20px;"></i>
 			</a>
-		</div>
-		<ion-tabs>
-			<ion-tab title="进行中" ng-controller="HomeCtrl">
-				<ion-content has-tabs="true" on-refresh="onRefresh()">
-					<ion-refresher></ion-refresher>
-					<ion-list class="content  has-header" scroll="false" on-refresh="onRefresh()" s-editing="isEditingItems" animation="fade-out" delete-icon="icon ion-minus-circled">
-						<ion-item ng-repeat="item in items" item="item" buttons="item.buttons" can-delete="true" can-swipe="true" on-delete="deleteItem(item)" ng-class="{completed: item.isCompleted}">
-							{{item.title}}
-							<i class="{{item.icon}}"></i>
-						</ion-item>
-					</ion-list>
-				</ion-content>
-			</ion-tab>
+		</div>-->
+		<ion-scroll class="has-header">
+			<ion-tabs>
+				<ion-tab title="进行中" ng-controller="HomeCtrl">
+					<ion-view>
+						<ion-content style="background-color: #D9D9D9;">
+							<ion-list scroll="false">
+								<div class="item" ng-repeat="list in carouseList" style="padding-bottom: 0px;border-width: 0;margin-bottom: 6px;">
+									<div class="item item-avatar " style="border-width: 0px;">
+										<img src="{{list.img_id}} ">
+										<h2>获得者:<a style="color: #e42112; ">&nbsp;用户名:&nbsp;{{list.name}}</a></h2>
+										<p id="location_participate " class="mui-ellipsis ">期号:&nbsp;{{list.code}}</p>
+										<p id="count_participate " class="mui-ellipsis ">幸运号码:&nbsp;{{list.num}}</p>
+										<p id="location_participate " class="mui-ellipsis ">本期参与:&nbsp;********</p>
+										<p id="count_participate " class="mui-ellipsis ">揭晓时间:&nbsp;{{list.opentime}}</p>
+									</div>
+									<div class="item item-button-right" style="border-width: 0;border-top-width: 1px;">
+										<a id="luck_code" style="  float: right;margin-right: 40px;">剩余{{list.code}}人次</a>
+										<button class="button button-outline button-assertive" style="color: red; border-radius: 2px;">计算详情</button>
+									</div>
+								</div>
+							</ion-list>
+						</ion-content>
+					</ion-view>
+				</ion-tab>
 
-			<ion-tab title="已揭晓">
-				<ion-content has-header="true">
-					<h1>Deadlines</h1>
-				</ion-content>
-			</ion-tab>
+				<ion-tab title="已揭晓 ">
+					<ion-content has-header="true ">
+						<h1>Deadlines</h1>
+					</ion-content>
+				</ion-tab>
 
-			<ion-tab title="中奖纪录">
-				<ion-content has-header="true">
-					<h1>Settings</h1>
-				</ion-content>
-			</ion-tab>
+				<ion-tab title="中奖纪录 ">
+					<ion-content has-header="true ">
+						<h1>Settings</h1>
+					</ion-content>
+				</ion-tab>
 
-		</ion-tabs>
-
-		<script id="newTask.html" type="text/ng-template">
-			<div id="task-view" class="modal slide-in-up" ng-controller="TaskCtrl">
-				<header class="bar bar-header bar-secondary">
-					<h1 class="title">New Task</h1>
-					<button class="button button-clear button-primary" ng-click="close()">Done</button>
-				</header>
-				<ion-content class="padding has-header">
-					<input type="text" placeholder="I need to do this...">
-				</ion-content>
-			</div>
-		</script>
-
+			</ion-tabs>
+		</ion-scroll>
 	</body>
 
 </html>
