@@ -22,7 +22,7 @@
 					id: '第一期',
 					time: '2012-10-15 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					name: 'heb',
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
 					code: '001',
 					num: '1',
 					opentime: '2012-10-16 20:12:00'
@@ -30,51 +30,43 @@
 					id: '第二期',
 					time: '2012-10-05 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					name: 'heb2',
-					code: '002',
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					code: '001',
 					num: '1',
 					opentime: '2012-10-17 20:12:00'
 				}, {
 					id: '第三期',
 					time: '2012-10-06 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					name: 'heb3',
-					code: '003',
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					code: '002',
 					num: '1',
 					opentime: '2012-10-18 20:12:00'
 				}, {
 					id: '第四期',
 					time: '2012-10-07 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					name: 'heb4',
-					code: '004',
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					code: '002',
 					num: '1',
 					opentime: '2012-10-19 20:12:00'
 				}, {
 					id: '第五期',
 					time: '2012-10-08 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					name: 'heb5',
-					code: '005',
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					code: '003',
 					num: '1',
 					opentime: '2012-10-20 20:12:00'
 				}, {
 					id: '第六期',
 					time: '2012-10-09 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					name: 'heb6',
-					code: '006',
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					code: '003',
 					num: '1',
 					opentime: '2012-10-21 20:12:00'
 				}];
-
-				// Create the items
-				for(var i = 0; i < 25; i++) {
-					$scope.items.push({
-						title: 'Task ' + (i + 1)
-					});
-				}
-
 			})
 		</script>
 	</head>
@@ -97,19 +89,40 @@
 			</a>
 		</div>-->
 		<ion-scroll class="has-header">
-			<ion-tabs>
-				<ion-tab title="进行中" ng-controller="HomeCtrl">
+			<ion-tabs ng-controller="HomeCtrl">
+				<ion-tab title="进行中">
+					<ion-view>
+						<ion-content style="background-color: #D9D9D9;margin-bottom: 40px;">
+							<ion-list scroll="false">
+								<div class="item" ng-repeat="list in carouseList" style="padding-bottom: 0px;border-width: 0;margin-bottom: 6px;">
+									<div class="item item-avatar item-text-wrap " style="border-width: 0px;">
+										<img src="{{list.img_id}} ">
+										<h2><a style="color: #e42112; ">{{list.name}}</a></h2>
+										<p id="location_participate " class="mui-ellipsis ">期号:&nbsp;{{list.code}}</p>
+										<p id="location_participate " class="mui-ellipsis ">本期参与:&nbsp;********</p>
+									</div>
+									<div class="item item-button-right" style="border-width: 0;border-top-width: 1px;">
+										<a id="luck_code" style="  float: right;margin-right: 40px;">剩余{{list.code}}人次</a>
+										<button class="button  button-outline button-small button-assertive" style="color: red; border-radius: 2px;">计算详情</button>
+									</div>
+								</div>
+							</ion-list>
+						</ion-content>
+					</ion-view>
+				</ion-tab>
+
+				<ion-tab title="已揭晓 ">
 					<ion-view>
 						<ion-content style="background-color: #D9D9D9;">
 							<ion-list scroll="false">
-								<div class="item" ng-repeat="list in carouseList" style="padding-bottom: 0px;border-width: 0;margin-bottom: 6px;">
+								<div class="item" ng-repeat="list in carouseList | filter: {code : '002'}" style="padding-bottom: 0px;border-width: 0;margin-bottom: 6px;">
 									<div class="item item-avatar " style="border-width: 0px;">
 										<img src="{{list.img_id}} ">
 										<h2>获得者:<a style="color: #e42112; ">&nbsp;用户名:&nbsp;{{list.name}}</a></h2>
 										<p id="location_participate " class="mui-ellipsis ">期号:&nbsp;{{list.code}}</p>
-										<p id="count_participate " class="mui-ellipsis ">幸运号码:&nbsp;{{list.num}}</p>
+					
 										<p id="location_participate " class="mui-ellipsis ">本期参与:&nbsp;********</p>
-										<p id="count_participate " class="mui-ellipsis ">揭晓时间:&nbsp;{{list.opentime}}</p>
+					
 									</div>
 									<div class="item item-button-right" style="border-width: 0;border-top-width: 1px;">
 										<a id="luck_code" style="  float: right;margin-right: 40px;">剩余{{list.code}}人次</a>
@@ -121,16 +134,27 @@
 					</ion-view>
 				</ion-tab>
 
-				<ion-tab title="已揭晓 ">
-					<ion-content has-header="true ">
-						<h1>Deadlines</h1>
-					</ion-content>
-				</ion-tab>
-
 				<ion-tab title="中奖纪录 ">
-					<ion-content has-header="true ">
-						<h1>Settings</h1>
-					</ion-content>
+					<ion-view>
+						<ion-content style="background-color: #D9D9D9;">
+							<ion-list scroll="false">
+								<div class="item" ng-repeat="list in carouseList | filter: {code : '003'}" style="padding-bottom: 0px;border-width: 0;margin-bottom: 6px;">
+									<div class="item item-avatar " style="border-width: 0px;">
+										<img src="{{list.img_id}} ">
+										<h2>获得者:<a style="color: #e42112; ">&nbsp;用户名:&nbsp;{{list.name}}</a></h2>
+										<p id="location_participate " class="mui-ellipsis ">期号:&nbsp;{{list.code}}</p>
+							
+										<p id="location_participate " class="mui-ellipsis ">本期参与:&nbsp;********</p>
+					
+									</div>
+									<div class="item item-button-right" style="border-width: 0;border-top-width: 1px;">
+										<a id="luck_code" style="  float: right;margin-right: 40px;">剩余{{list.code}}人次</a>
+										<button class="button button-outline button-assertive" style="color: red; border-radius: 2px;">计算详情</button>
+									</div>
+								</div>
+							</ion-list>
+						</ion-content>
+					</ion-view>
 				</ion-tab>
 
 			</ion-tabs>
