@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>往期揭晓</title>
+		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+		<link href="css/common.css" rel="stylesheet" />
+		<script src="lib/ionic/js/ionic.bundle.js"></script>
+		<script type="text/javascript">
+			var app = angular.module('ionicApp', ['ionic']);
+			app.controller('AppCtrl', function($scope) {
+				$scope.carouseList = [{
+					time: '2012-10-15 20:12:00',
+					code: [
+						'00600601',
+						'00600602',
+						'00600603',
+						'00600604',
+						'00600605',
+						'00600606',
+						'00600607'
+					]
+				}, {
+					time: '2012-10-06 20:12:00',
+					code: [
+						'10600600',
+						'10600600',
+						'10600600',
+						'10600600',
+						'10600600',
+						'10600600',
+						'10600600'
+					]
+				}, {
+					time: '2012-10-06 20:12:00',
+					code: [
+						'20600600',
+						'20600600',
+						'20600600',
+						'20600600',
+						'20600600',
+						'20600600',
+						'20600600'
+					]
+				}, {
+					time: '2012-10-07 20:12:00',
+					code: [
+						'30600600',
+						'30600600',
+						'30600600',
+						'30600600',
+						'30600600',
+						'30600600',
+						'30600600'
+					]
+				}, {
+					time: '2012-10-08 20:12:00',
+					code: [
+						'40600600',
+						'40600600',
+						'40600600',
+						'40600600',
+						'40600600',
+						'40600600',
+						'40600600'
+					]
+				}, {
+					time: '2012-10-09 20:12:00',
+					code: [
+						'50600600',
+						'50600600',
+						'50600600',
+						'50600600',
+						'50600600',
+						'50600600',
+						'50600600'
+					]
+				}];
+				$scope.count = $scope.carouseList.length;
+			});
+		</script>
+		<style>
+			.item {
+				border-width: 0px;
+			}
+		</style>
+	</head>
+
+	<body ng-app="ionicApp" ng-controller="AppCtrl">
+		<!--顶部-->
+		<div class="bar bar-header bar-dark">
+			<button class="button button-icon icon ion-chevron-left" onclick="javascript: history.go(-1);"></button>
+			<div class="h1 title">我的夺宝号</div>
+		</div>
+		<ion-content zooming="true" direction="y" scrollbar-y="false" class="content has-header " style="background-color: white;">
+			<div class="list" style="background-color: #D9D9D9;">
+				<div class="item" style="padding: 0px;">
+					<div class="row row-wrap">
+						<div class="col col-100">
+							<a class="item item-left-editable " href="#" style="padding-top: 8px;padding-bottom: 8px;">
+								共购买{{count}}人次，夺宝号为：
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="item " style="border-width: 0px;border-top-width: 1px;" ng-repeat="list in carouseList">
+					<div class="row row-wrap">
+						<div class="col col-100">
+							<a class="item item-left-editable " href="#" style="padding: 0px;">
+								{{list.time}}
+							</a>
+						</div>
+					</div>
+
+					<div class="row row-wrap">
+						<div class="col col-25" ng-repeat="num in list.code track by $index">
+							<a class="item item-left-editable " href="#" style="padding: 0px;">
+								{{num}}
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ion-content>
+	</body>
+
+</html>

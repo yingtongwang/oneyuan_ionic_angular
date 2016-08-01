@@ -1,0 +1,95 @@
+<!--往期揭晓-->
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>往期揭晓</title>
+		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+		<link href="css/common.css" rel="stylesheet" />
+		<script src="lib/ionic/js/ionic.bundle.js"></script>
+		<script type="text/javascript">
+			var app = angular.module('ionicApp', ['ionic']);
+			app.controller('AppCtrl', function($scope) {
+				$scope.carouseList = [{
+					id: '第一期',
+					time: '2012-10-15 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb',
+					code: '001',
+					num: '1',
+					opentime: '2012-10-16 20:12:00'
+				}, {
+					id: '第二期',
+					time: '2012-10-05 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb2',
+					code: '002',
+					num: '1',
+					opentime: '2012-10-17 20:12:00'
+				}, {
+					id: '第三期',
+					time: '2012-10-06 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb3',
+					code: '003',
+					num: '1',
+					opentime: '2012-10-18 20:12:00'
+				}, {
+					id: '第四期',
+					time: '2012-10-07 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb4',
+					code: '004',
+					num: '1',
+					opentime: '2012-10-19 20:12:00'
+				}, {
+					id: '第五期',
+					time: '2012-10-08 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb5',
+					code: '005',
+					num: '1',
+					opentime: '2012-10-20 20:12:00'
+				}, {
+					id: '第六期',
+					time: '2012-10-09 20:12:00',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: 'heb6',
+					code: '006',
+					num: '1',
+					opentime: '2012-10-21 20:12:00'
+				}, ];
+			});
+		</script>
+	</head>
+
+	<body ng-app="ionicApp" ng-controller="AppCtrl">
+		<!--顶部-->
+		<div class="bar bar-header bar-dark">
+			<button class="button button-icon icon ion-chevron-left" onclick="javascript: history.go(-1);"></button>
+			<div class="h1 title">往期揭晓</div>
+		</div>
+		<ion-content zooming="true" direction="y" scrollbar-y="false" class="content has-header " style="background-color: white;">
+			<div class="list" style="background-color: #D9D9D9;">
+				<div class="item" style="padding: 0px;margin-bottom: 8px;" ng-repeat="list in carouseList">
+					<a class="item" href="#" style="border-width: 0px;">
+						{{list.id}}
+						<span class="item-note">
+            				揭晓时间:{{list.time}}
+          					</span>
+					</a>
+					<div class="item item-avatar" style="border-width: 0px;border-top-width: 1px;">
+						<img src="{{list.img_id}}">
+						<h2>获得者:<a style="color: #e42112;">&nbsp;用户名:&nbsp;{{list.name}}</a></h2>
+						<p id="location_participate" class="mui-ellipsis">期号:&nbsp;{{list.code}}</p>
+						<p id="count_participate" class="mui-ellipsis">幸运号码:&nbsp;{{list.num}}</p>
+						<p id="location_participate" class="mui-ellipsis">本期参与:&nbsp;********</p>
+						<p id="count_participate" class="mui-ellipsis">揭晓时间:&nbsp;{{list.opentime}}</p>
+					</div>
+				</div>
+			</div>
+		</ion-content>
+	</body>
+
+</html>

@@ -1,220 +1,87 @@
-<!DOCTYPE html>
+<!--往期揭晓-->
 <html>
 
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>往期揭晓</title>
 		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
 		<link href="css/common.css" rel="stylesheet" />
 		<script src="lib/ionic/js/ionic.bundle.js"></script>
-		<script>
-		</script>
 		<script type="text/javascript">
-			MY_FUNCTION = (function() {
-				var upSheet = document.createElement('div');
-				upSheet.setAttribute('style', 'display:none;background-color:rgba(0,0,0,.5);position:absolute;left:0px;top:0px;z-index: 9999;');
-				upSheet.style.width = document.documentElement.clientWidth + 'px';
-				upSheet.style.height = document.documentElement.clientHeight + 'px';
-
-				var sheet = document.createElement('div');
-				sheet.setAttribute('style', 'display:block;width:100%;min-height:0px;position:absolute;left:0px;bottom:0px;background-color:#f8f8f8;z-index:10000;');
-				upSheet.appendChild(sheet);
-				document.body.appendChild(upSheet);
-				return {
-					scope: null,
-					showUpSheet: function(o) {
-						this.scope = o.scope;
-						this.item = o.item;
-						sheet.innerHTML = o.template;
-						upSheet.style.display = 'block';
-					},
-					hideUpSheet: function() {
-						sheet.innerHTML = '';
-						upSheet.style.display = 'none';
-					}
-				};
-			});
-			var app = angular.module('ionicApp', ['ionic'])
-			app.controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
-				//为了验证属性active-slide定义的模型，angularjs是mvc模式
-				$scope.carouseList = [{
-					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					name: '5371a63759ed6.jpg'
-				}, {
-					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					name: '5371a63759ed6.jpg'
-				}, {
-					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					name: '5371a63759ed6.jpg'
-				}];
-				$scope.startApp = function() {
-					$state.go('main');
-				};
-				$scope.next = function() {
-					$ionicSlideBoxDelegate.next();
-				};
-				$scope.previous = function() {
-					$ionicSlideBoxDelegate.previous();
-				};
-
-				// Called each time the slide changes
-				$scope.slideChanged = function(index) {
-					$scope.slideIndex = index;
-				};
-			});
-
-			app.controller('AppCtrl', ['$scope', '$ionicPopover', '$timeout', function($scope, $ionicPopover, $timeout) {
-				//				$scope.quantity = "1";numbox-min numbox-max
-				$scope.numAdd = function() {
-					var num_add = parseInt($scope.quantity);
-					if ($scope.quantity == "") {
-						num_add = 1;
-					}
-					if (num_add <= $scope.max) {
-						$scope.quantity = num_add + 1;
-					}
-					if (num_add == $scope.max) {
-						$scope.mySwitch = false;
-					}
-				}
-				$scope.numDec = function() {
-					var num_dec = parseInt($scope.quantity) - 1;
-					if (num_dec >= $scope.min) {
-						$scope.quantity = num_dec;
-					}
-					if (num_dec == $scope.min) {
-						$scope.mySwitch = true;
-					}
-				}
-
-				$scope.showUpSheet = function() {
-					MY_FUNCTION.showUpSheet({
-						template: document.getElementById('templates/sheet.html').innerHTML
-					});
-				}
-				document.body.classList.remove('platform-iOS');
-				document.body.classList.remove('platform-Android');
-
-				//使用ios的样式
-				document.body.classList.add('platform-ios');
-				$scope.popover = $ionicPopover.fromTemplateUrl('my-popover.html', {
-					scope: $scope
-				});
-
-				// .fromTemplateUrl() 方法
-				$ionicPopover.fromTemplateUrl('my-popover.html', {
-					scope: $scope
-				}).then(function(popover) {
-					$scope.popover = popover;
-				});
-
-				$scope.openPopover = function($event) {
-					$scope.popover.show($event);
-				};
-				$scope.closePopover = function() {
-					$scope.popover.hide();
-				};
-				// 清除浮动框
-				$scope.$on('$destroy', function() {
-					$scope.popover.remove();
-				});
-				// 在隐藏浮动框后执行
-				$scope.$on('popover.hidden', function() {
-					// 执行代码
-				});
-				// 移除浮动框后执行
-				$scope.$on('popover.removed', function() {
-					// 执行代码
-				});
-			}]);
+			var app = angular.module('ionicApp', ['ionic']);
+			app.controller('AppCtrl', ['$scope'], function($scope) {});
 		</script>
-		<style>
-			.popover {
-				left: 0px;
-				width: 100%;
-				max-width: 640px;
-			}
-			
-			.button {
-				width: 80px;
-				line-height: 32px;
-				height: 32px;
-				min-height: 0px;
-			}
-			
-			.button.button-light {
-				border-color: #D9D9D9;
-			}
-			
-			.topaydiv {
-				float: right;
-				background-color: red;
-				text-align: center;
-				vertical-align: middle;
-				width: 80px;
-				font-size: 14px;
-				line-height: 40px;
-				color: white;
-			}
-			
-			
-		</style>
 	</head>
 
-	<body ng-app="ionicApp" ng-controller="AppCtrl" ng-init="quantity=1;min=1;max=9;mySwitch=true">
+	<body ng-app="ionicApp" ng-controller="AppCtrl">
 		<!--顶部-->
 		<div class="bar bar-header bar-dark">
-			<button ng-click="openPopover($event)" class="button button-icon icon ion-chevron-left"></button>
-			<div class="h1 title">产品详情</div>
-			<button class="button button-icon icon ion-share" ng-click="openPopover($event)"></button>
+			<button class="button button-icon icon ion-chevron-left"></button>
+			<div class="h1 title">往期揭晓</div>
 		</div>
-		<div class="bar bar-footer bar-assertive" onclick="MY_FUNCTION.showUpSheet()">
-			<div class="title" style="margin: 0px;">立即夺宝</div>
-		</div>
-		<!--浮动块-->
-		<script id="my-popover.html" type="text/ng-template">
-			<!--底部-->
-			<div class="tabs-tanchu">
-				<div class="row">
-					<div class="col" href="#/lostCar" onclick="MY_FUNCTION.hideUpSheet();location.href='#/lostCar';">
-						<img src="img/4.0index/tc-1.png">
-						<p>丢失车辆</p>
-					</div>
+		<ion-content class="content has-header " style="background-color: white;">
+			<div class="list" style="background-color: #D9D9D9;">
+				<div class="item item-avatar">
+					<img src="img/nin_logo.jpeg">
+					<h2>获得者:<a style="color: #e42112;">&nbsp;Pretty Hate Machine</a></h2>
+					<p id="location_participate" class="mui-ellipsis">用户id*******</p>
+					<p id="count_participate" class="mui-ellipsis">期号*******</p>
+					<p id="location_participate" class="mui-ellipsis">本期参与********</p>
+					<p id="count_participate" class="mui-ellipsis">揭晓时间********</p>
+
+				</div>
+				<div class="item item-avatar">
+
+					<img src="img/nin_logo.jpeg">
+					<h2>获得者:<a style="color: #e42112;">&nbsp;Pretty Hate Machine</a></h2>
+					<p id="location_participate" class="mui-ellipsis">用户id*******</p>
+					<p id="count_participate" class="mui-ellipsis">期号*******</p>
+					<p id="location_participate" class="mui-ellipsis">本期参与********</p>
+					<p id="count_participate" class="mui-ellipsis">揭晓时间********</p>
+
+				</div>
+				<div class="item item-avatar">
+
+					<img src="img/nin_logo.jpeg">
+					<h2>获得者:<a style="color: #e42112;">&nbsp;Pretty Hate Machine</a></h2>
+					<p id="location_participate" class="mui-ellipsis">用户id*******</p>
+					<p id="count_participate" class="mui-ellipsis">期号*******</p>
+					<p id="location_participate" class="mui-ellipsis">本期参与********</p>
+					<p id="count_participate" class="mui-ellipsis">揭晓时间********</p>
+
+				</div>
+				<div class="item item-avatar" style="margin-top: 8px;padding-top: 0px;;">
+
+					<img src="img/nin_logo.jpeg">
+					<h2>获得者:<a style="color: #e42112;">&nbsp;Pretty Hate Machine</a></h2>
+					<p id="location_participate" class="mui-ellipsis">用户id*******</p>
+					<p id="count_participate" class="mui-ellipsis">期号*******</p>
+					<p id="location_participate" class="mui-ellipsis">本期参与********</p>
+					<p id="count_participate" class="mui-ellipsis">揭晓时间********</p>
+
+				</div>
+				<div class="item item-avatar" style="margin-top: 8px;padding-top: 0px;;">
+
+					<img src="img/nin_logo.jpeg">
+					<h2>获得者:<a style="color: #e42112;">&nbsp;Pretty Hate Machine</a></h2>
+					<p id="location_participate" class="mui-ellipsis">用户id*******</p>
+					<p id="count_participate" class="mui-ellipsis">期号*******</p>
+					<p id="location_participate" class="mui-ellipsis">本期参与********</p>
+					<p id="count_participate" class="mui-ellipsis">揭晓时间********</p>
+
+				</div>
+				<div class="item item-avatar" style="margin-top: 8px;padding-top: 0px;;">
+
+					<img src="img/nin_logo.jpeg">
+					<h2>获得者:<a style="color: #e42112;">&nbsp;Pretty Hate Machine</a></h2>
+					<p id="location_participate" class="mui-ellipsis">用户id*******</p>
+					<p id="count_participate" class="mui-ellipsis">期号*******</p>
+					<p id="location_participate" class="mui-ellipsis">本期参与********</p>
+					<p id="count_participate" class="mui-ellipsis">揭晓时间********</p>
+
 				</div>
 			</div>
-			<div class="row-delete dibu" onclick="MY_FUNCTION.hideUpSheet()">
-				<img src="img/4.0index/delete.png" width="40" height="40">
-			</div>
-		</script>
-
-		<ion-content zooming="true" direction="y" scrollbar-y="false" class="content  has-header has-footer">
-
-			<div id="picture" class="list" style="padding: 0px;">
-				<div class="item item-icon-right" style="text-align: center;border-width:0px;padding-right: 0px;">
-					参与人次
-					<i class="icon ion-android-cancel" style="font-size: 20px;"></i>
-				</div>
-				<div class="item" style="text-align: center;border-width:0px">
-					<button class="button button-light">5次</button>
-					<button class="button button-light" style="margin-left: 8px;margin-right: 8px;">10次</button>
-					<button class="button button-light">20次</button>
-				</div>
-				<div class="item" style="text-align: center;border-width:0px">
-					<div class="mui-numbox" numbox-min="{{min}}" numbox-max="{{max}}}" style="width:100% ; text-align: center; height: 32px;">
-						<input type="button" class="mui-btn mui-btn-numbox-minus" ng-click="numDec()" type="button" ng-disabled="mySwitch" value="-"></input>
-						<input id="input_participate_count" class="mui-input-numbox"  readonly="true" type="number" value="{{quantity}}">
-						<input type="button" class="mui-btn mui-btn-numbox-plus" ng-click="numAdd()" ng-disabled="!mySwitch" type="button" value=" + "></button>
-					</div>
-				</div>
-				<div class="item " style="padding: 0px; height: 40px; ">
-					<div onclick="participate() " class="topaydiv ">立即夺宝</div>
-					<div style="float: right; padding-right: 10px; text-align: center;line-height:40px;vertical-align: middle; " id="total ">合计：￥5</div>
-				</div>
-			</div>
-
 		</ion-content>
 	</body>
 

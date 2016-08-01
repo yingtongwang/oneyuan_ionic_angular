@@ -42,7 +42,7 @@
 			app.controller('AppCtrl', ['$scope', '$ionicPopover', '$timeout', function($scope, $ionicPopover, $timeout) {
 				$scope.choose = function(count) {
 					var num_add = parseInt($scope.quantity);
-					if (count >= $scope.max) {
+					if(count >= $scope.max) {
 						$scope.quantity = $scope.max;
 						$scope.maxSwitch = true;
 						$scope.minSwitch = false;
@@ -56,13 +56,13 @@
 					var num_add = parseInt($scope.quantity);
 					$scope.maxSwitch = false;
 					$scope.minSwitch = false;
-					if ($scope.quantity == "") {
+					if($scope.quantity == "") {
 						num_add = 1;
 					}
-					if (num_add < $scope.max) {
+					if(num_add < $scope.max) {
 						$scope.quantity = num_add + 1;
 					}
-					if ($scope.quantity == $scope.max) {
+					if($scope.quantity == $scope.max) {
 						$scope.maxSwitch = true;
 					}
 				}
@@ -70,10 +70,10 @@
 					$scope.maxSwitch = false;
 					$scope.minSwitch = false;
 					var num_dec = parseInt($scope.quantity);
-					if (num_dec > $scope.min) {
+					if(num_dec > $scope.min) {
 						$scope.quantity = num_dec - 1;
 					}
-					if ($scope.quantity == $scope.min) {
+					if($scope.quantity == $scope.min) {
 						$scope.minSwitch = true;
 					}
 				}
@@ -164,7 +164,8 @@
 			.popover-backdrop {
 				background-color: rgba(0, 0, 0, .4);
 			}
-			.button-icon{
+			
+			.button-icon {
 				font-size: 20px;
 			}
 		</style>
@@ -173,7 +174,7 @@
 	<body ng-app="ionicApp" ng-controller="AppCtrl" ng-init="quantity=1;min=1;max=9;maxSwitch=false;minSwitch=true">
 		<!--顶部-->
 		<div class="bar bar-header bar-dark">
-			<button class="button button-icon icon ion-chevron-left"></button>
+			<button class="button button-icon icon ion-chevron-left" onclick="javascript: history.go(-1);"></button>
 			<div class="h1 title">商品详情</div>
 			<button class="button button-icon icon ion-share"></button>
 		</div>
@@ -187,7 +188,7 @@
 		</div>
 		<ion-content ng-click="closePopover()" zooming="true" direction="y" scrollbar-y="false" class="content  has-header has-footer" style="background-color: white;">
 			<div class="content" ng-controller="IntroCtrl">
-				<ion-slide-box style="max-width: 640px;max-height: 280px;" on-slide-changed="slideChanged(index)" active-slide="slideIndex" auto-play="true" slide-interval="4000" does-continue="true" show-pager="true">
+				<ion-slide-box style="max-width: 640px;max-height: 200px;" on-slide-changed="slideChanged(index)" active-slide="slideIndex" auto-play="true" slide-interval="4000" does-continue="true" show-pager="true">
 					<ion-slide ng-repeat="list in carouseList">
 						<a ng-href="{{list.url}}" target="_blank"><img style="width:100%; height:100%; " ng-src="{{list.img_id}}" alt="{{list.name}}" class="other-img"></a>
 					</ion-slide>

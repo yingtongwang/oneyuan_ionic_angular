@@ -1,6 +1,6 @@
 ﻿{
     "@platforms": ["android", "iPhone", "iPad"],
-    "id": "",/*应用的标识，创建应用时自动生成，勿手动修改*/
+    "id": "H5C529D4C",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "oneyuan_ionic_angular",/*应用名称，程序桌面图标名称*/
     "version": {
         "name": "1.0",/*应用版本名称*/
@@ -199,5 +199,119 @@
                 }
             }
         }
-    }
+    },
+	"dependencies":{
+		"pages": {
+			"productpublish.html": {
+				"href": "productpublish.html",
+				"resources": [
+					"lib/ionic/css/ionic.css",
+					"lib/ionic/fonts/ionicons.eot",
+					"lib/ionic/fonts/ionicons.ttf",
+					"lib/ionic/fonts/ionicons.woff",
+					"lib/ionic/fonts/ionicons.svg",
+					"css/common.css",
+					"lib/ionic/js/ionic.bundle.js",
+					"img/nin_logo.jpeg"
+				],
+				"priority": 0,
+				"refer": []
+			},
+			"product.html": {
+				"href": "product.html",
+				"resources": [
+					"lib/ionic/css/ionic.css",
+					"lib/ionic/fonts/ionicons.eot",
+					"lib/ionic/fonts/ionicons.ttf",
+					"lib/ionic/fonts/ionicons.woff",
+					"lib/ionic/fonts/ionicons.svg",
+					"css/common.css",
+					"lib/ionic/js/ionic.bundle.js",
+					"img/nin_logo.jpeg"
+				],
+				"priority": 1,
+				"refer": []
+			},
+			"index.html": {
+				"href": "index.html",
+				"resources": [
+					"lib/ionic/css/ionic.css",
+					"lib/ionic/fonts/ionicons.eot",
+					"lib/ionic/fonts/ionicons.ttf",
+					"lib/ionic/fonts/ionicons.woff",
+					"lib/ionic/fonts/ionicons.svg",
+					"lib/ionic/js/ionic.bundle.js",
+					"product.html",
+					"productpublish.html"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"lib/ionic/js/angular/angular.min.js",
+				"test.html",
+				"lib/ionic/scss/_scaffolding.scss",
+				"lib/ionic/scss/_type.scss",
+				"lib/ionic/scss/_slide-box.scss",
+				"lib/ionic/scss/_badge.scss",
+				"lib/ionic/scss/_grid.scss",
+				"lib/ionic/scss/_menu.scss",
+				"lib/ionic/scss/_slides.scss",
+				"lib/ionic/scss/_radio.scss",
+				"lib/ionic/scss/_loading.scss",
+				"lib/ionic/js/angular/angular.js",
+				"lib/ionic/scss/_tabs.scss",
+				"lib/ionic/scss/_select.scss",
+				"lib/ionic/scss/_items.scss",
+				"lib/ionic/scss/ionicons/_ionicons-font.scss",
+				"lib/ionic/js/ionic-angular.min.js",
+				"lib/ionic/scss/_refresher.scss",
+				"lib/ionic/scss/_action-sheet.scss",
+				"README.md",
+				"lib/ionic/scss/_backdrop.scss",
+				"lib/ionic/scss/_modal.scss",
+				"lib/ionic/scss/_platform.scss",
+				"lib/ionic/scss/_mixins.scss",
+				"lib/ionic/js/angular/angular-animate.js",
+				"lib/ionic/js/angular/angular-sanitize.min.js",
+				"lib/ionic/scss/_transitions.scss",
+				"lib/ionic/js/angular-ui/angular-ui-router.js",
+				"lib/ionic/scss/_toggle.scss",
+				"lib/ionic/scss/_util.scss",
+				"lib/ionic/scss/_button.scss",
+				"lib/ionic/js/angular-ui/angular-ui-router.min.js",
+				"lib/ionic/js/angular/angular-resource.min.js",
+				"lib/ionic/scss/ionicons/_ionicons-variables.scss",
+				"lib/ionic/scss/_list.scss",
+				"lib/ionic/scss/_checkbox.scss",
+				"lib/ionic/scss/_reset.scss",
+				"lib/ionic/scss/_spinner.scss",
+				"lib/ionic/js/angular/angular-animate.min.js",
+				"test1.html",
+				"lib/ionic/scss/_variables.scss",
+				"lib/ionic/js/ionic.bundle.min.js",
+				"lib/ionic/js/ionic-angular.js",
+				"lib/ionic/scss/_animations.scss",
+				"lib/ionic/scss/_form.scss",
+				"lib/ionic/scss/_popover.scss",
+				"lib/ionic/js/ionic.min.js",
+				"lib/ionic/scss/_button-bar.scss",
+				"lib/ionic/scss/_bar.scss",
+				"lib/ionic/scss/_range.scss",
+				"lib/ionic/js/angular/angular-resource.js",
+				"lib/ionic/scss/_progress.scss",
+				"lib/ionic/scss/ionic.scss",
+				"lib/ionic/js/angular/angular-sanitize.js",
+				"lib/ionic/scss/_popup.scss",
+				"lib/ionic/css/ionic.min.css",
+				"lib/ionic/scss/ionicons/ionicons.scss",
+				"lib/ionic/js/ionic.js",
+				"lib/ionic/version.json",
+				"lib/ionic/css/common.css",
+				"lib/ionic/scss/ionicons/_ionicons-icons.scss"
+			]
+		}
+	}
 }

@@ -1,0 +1,37 @@
+{
+  "productpublish.html": {
+    "href": "productpublish.html",
+    "resources": [
+      "lib/ionic/css/ionic.css",
+      "css/common.css",
+      "lib/ionic/js/ionic.bundle.js",
+      "img/nin_logo.jpeg"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "product.html": {
+    "href": "product.html",
+    "resources": [
+      "lib/ionic/css/ionic.css",
+      "css/common.css",
+      "lib/ionic/js/ionic.bundle.js",
+      "img/nin_logo.jpeg"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [
+      "lib/ionic/css/ionic.css",
+      "lib/ionic/js/ionic.bundle.js",
+      "lib/ionic/fonts/ionicons.ttf"
+    ],
+    "refer": [
+      "productpublish.html",
+      "product.html"
+    ],
+    "priority": 0
+  }
+}
