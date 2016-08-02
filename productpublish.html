@@ -190,7 +190,7 @@
 			<div class="content" ng-controller="IntroCtrl">
 				<ion-slide-box style="max-width: 640px;max-height: 200px;" on-slide-changed="slideChanged(index)" active-slide="slideIndex" auto-play="true" slide-interval="4000" does-continue="true" show-pager="true">
 					<ion-slide ng-repeat="list in carouseList">
-						<a ng-href="{{list.url}}" target="_blank"><img style="width:100%; height:100%; " ng-src="{{list.img_id}}" alt="{{list.name}}" class="other-img"></a>
+						<a target="_blank"><img style="width:100%; height:100%; " ng-src="{{list.img_id}}" alt="{{list.name}}" class="other-img"></a>
 					</ion-slide>
 				</ion-slide-box>
 			</div>

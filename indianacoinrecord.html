@@ -1,0 +1,125 @@
+<html ng-app="ionicApp">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title>夺宝币记录</title>
+		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+		<script src="lib/ionic/js/ionic.bundle.js"></script>
+		<script type="text/javascript">
+			angular.module('ionicApp', ['ionic'])
+
+			.controller('RootCtrl', function($scope) {
+				$scope.onControllerChanged = function(oldController, oldIndex, newController, newIndex) {
+					console.log('Controller changed', oldController, oldIndex, newController, newIndex);
+					console.log(arguments);
+				};
+			})
+
+			.controller('HomeCtrl', function($scope, $timeout, $ionicActionSheet) {
+				$scope.items = [];
+				$scope.carouseList = [{
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					orderid: '001',
+					state: '0',
+					num: '+5',
+					time: '2012-05-15'
+				}, {
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					orderid: '001',
+					state: '0',
+					num: '+1',
+					time: '2012-06-15'
+				}, {
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					orderid: '001',
+					state: '1',
+					num: '+2',
+					time: '2012-07-15'
+				}, {
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					orderid: '001',
+					state: '1',
+					num: '+3',
+					time: '2012-08-15'
+				}, {
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					orderid: '001',
+					state: '2',
+					num: '-5',
+					time: '2012-09-15'
+				}, {
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					orderid: '001',
+					state: '2',
+					num: '-5',
+					time: '2012-10-15'
+				}, {
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					orderid: '001',
+					state: '2',
+					num: '-5',
+					time: '2012-11-15'
+				}];
+			})
+		</script>
+	</head>
+
+	<body ng-controller="RootCtrl">
+		<div class="bar bar-header bar-dark">
+			<button class="button button-icon icon ion-chevron-left" onclick="javascript: history.go(-1);"></button>
+			<div class="h1 title">夺宝记录</div>
+		</div>
+		<ion-scroll >
+			<ion-tabs ng-controller="HomeCtrl">
+				<ion-tab title="全部">
+					<ion-view>
+						<ion-content style="background-color: #D9D9D9;">
+							<ion-list scroll="false">
+								<div class="item item-text-wrap" ng-repeat="list in carouseList">
+									<h2>{{list.name}}</h2>
+									<p id="location_participate " class="mui-ellipsis ">订单编号:&nbsp;{{list.orderid}}
+										<span class="item-note">{{list.num}}</span></p>
+									<p id="location_participate " class="mui-ellipsis ">下单日期:&nbsp;{{list.time}}</p>
+								</div>
+							</ion-list>
+						</ion-content>
+					</ion-view>
+				</ion-tab>
+
+				<ion-tab title="收入 ">
+					<ion-view>
+						<ion-content style="background-color: #D9D9D9;margin-bottom: 40px;">
+							<ion-list scroll="false">
+								<div class="item item-text-wrap" ng-repeat="list in carouseList | filter: {state : '1'}">
+									<h2>{{list.name}}</h2>
+									<p id="location_participate " class="mui-ellipsis ">订单编号:&nbsp;{{list.orderid}}
+										<span class="item-note">{{list.num}}</span></p>
+									<p id="location_participate " class="mui-ellipsis ">下单日期:&nbsp;{{list.time}}</p>
+								</div>
+							</ion-list>
+						</ion-content>
+					</ion-view>
+				</ion-tab>
+
+				<ion-tab title="支出 ">
+					<ion-view>
+						<ion-content style="background-color: #D9D9D9;margin-bottom: 40px;">
+							<ion-list scroll="false">
+								<div class="item item-text-wrap" ng-repeat="list in carouseList | filter: {state : '2'}">
+									<h2>{{list.name}}</h2>
+									<p id="location_participate " class="mui-ellipsis ">订单编号:&nbsp;{{list.orderid}}
+										<span class="item-note">{{list.num}}</span></p>
+									<p id="location_participate " class="mui-ellipsis ">下单日期:&nbsp;{{list.time}}</p>
+								</div>
+								</div>
+							</ion-list>
+						</ion-content>
+					</ion-view>
+				</ion-tab>
+
+			</ion-tabs>
+		</ion-scroll>
+	</body>
+
+</html>

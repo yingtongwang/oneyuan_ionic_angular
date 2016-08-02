@@ -11,39 +11,11 @@
 				$scope.carouseList = [{
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
 					img_id: 'product.html',
-					name: '5371a63759ed6.jpg'
+					name: '进行中'
 				}, {
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
 					img_id: 'productpublish.html',
-					name: '5371a63759ed6.jpg'
-				}, {
-					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'product.html',
-					name: '5371a63759ed6.jpg'
-				}, {
-					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'product.html',
-					name: '5371a63759ed6.jpg'
-				}, {
-					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'product.html',
-					name: '5371a63759ed6.jpg'
-				}, {
-					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'product.html',
-					name: '5371a63759ed6.jpg'
-				}, {
-					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'product.html',
-					name: '5371a63759ed6.jpg'
-				}, {
-					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'product.html',
-					name: '5371a63759ed6.jpg'
-				}, {
-					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
-					img_id: 'product.html',
-					name: '5371a63759ed6.jpg'
+					name: '已揭晓'
 				}];
 				$scope.onClick = function(text) {
 					$ionicScrollDelegate.resize(); //重新计算宽度和高度的方法
@@ -124,7 +96,7 @@
 		<div class="bar bar-header bar-dark">
 			<button class="button button-icon icon ion-chevron-left"></button>
 			<div class="h1 title">一元夺宝</div>
-			<button class="button button-icon icon ion-person"></button>
+			<button class="button button-icon icon ion-person" onclick="window.location.href='indianarecord.html'"></button>
 		</div>
 		<ion-content ng-app="ionicApp" zooming="true" direction="y" scrollbar-y="false" class="content has-header">
 			<div class="content" ng-controller="IntroCtrl">
@@ -142,7 +114,7 @@
 						<div class="item item-image">
 							<a href="{{list.img_id}}"><img src="{{list.url}}"></a>
 						</div>
-						<a class="item item-left-editable " href="#">
+						<a class="item item-left-editable " href="{{list.img_id}}">
 							{{list.name}}
 						</a>
 					</div>

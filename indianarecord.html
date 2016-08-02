@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-		<title>菜鸟教程(runoob.com)</title>
+		<title>夺宝记录</title>
 		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
 		<script src="lib/ionic/js/ionic.bundle.js"></script>
 		<script type="text/javascript">
@@ -20,52 +20,53 @@
 				$scope.items = [];
 				$scope.carouseList = [{
 					id: '第一期',
-					time: '2012-10-15 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
 					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
-					code: '001',
-					num: '1',
-					opentime: '2012-10-16 20:12:00'
+					num: '001',
+					state: '1',
+					orderstate: '1'
 				}, {
 					id: '第二期',
-					time: '2012-10-05 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
 					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
-					code: '001',
-					num: '1',
-					opentime: '2012-10-17 20:12:00'
+					num: '001',
+					state: '1',
+					orderstate: '1'
 				}, {
 					id: '第三期',
-					time: '2012-10-06 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
 					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
-					code: '002',
-					num: '1',
-					opentime: '2012-10-18 20:12:00'
+					num: '002',
+					state: '2',
+					orderstate: '2'
 				}, {
 					id: '第四期',
-					time: '2012-10-07 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
 					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
-					code: '002',
-					num: '1',
-					opentime: '2012-10-19 20:12:00'
+					num: '002',
+					state: '2',
+					orderstate: '1'
 				}, {
 					id: '第五期',
-					time: '2012-10-08 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
 					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
-					code: '003',
-					num: '1',
-					opentime: '2012-10-20 20:12:00'
+					num: '003',
+					state: '3',
+					orderstate: '1'
 				}, {
 					id: '第六期',
-					time: '2012-10-09 20:12:00',
 					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
 					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
-					code: '003',
-					num: '1',
-					opentime: '2012-10-21 20:12:00'
+					num: '003',
+					state: '3',
+					orderstate: '2'
+				}, {
+					id: '第七期',
+					img_id: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
+					name: '类似爱情 S925镀玫瑰金 天然芙蓉石镶嵌锆石吊坠 存爱',
+					num: '003',
+					state: '3',
+					orderstate: '3'
 				}];
 			})
 		</script>
@@ -76,10 +77,9 @@
 			<button class="button button-icon icon ion-chevron-left" onclick="javascript: history.go(-1);"></button>
 			<div class="h1 title">夺宝记录</div>
 		</div>
-		<div class="bar bar-subheader">
+		<div class="bar bar-subheader" onclick="window.location.href='indianacoinrecord.html'">
 			<h2 class="title" style="text-align: left;">夺宝币</h2>
-			<h2 class="title" style="text-align: right;">***&nbsp;<i class="icon ion-chevron-right" style="font-size: 20px;"></i></h2>
-
+			<h2 class="title" style="text-align: right;">0&nbsp;<i  class="icon ion-chevron-right" style="font-size: 20px;"></i></h2>
 		</div>
 		<!--<div class="list has-header" style="margin-bottom: 8px;">
 			<a class="item item-icon-right" style="padding-right: 40px;">
@@ -96,14 +96,13 @@
 							<ion-list scroll="false">
 								<div class="item" ng-repeat="list in carouseList" style="padding-bottom: 0px;border-width: 0;margin-bottom: 6px;">
 									<div class="item item-avatar item-text-wrap " style="border-width: 0px;">
-										<img src="{{list.img_id}} ">
-										<h2><a style="color: #e42112; ">{{list.name}}</a></h2>
-										<p id="location_participate " class="mui-ellipsis ">期号:&nbsp;{{list.code}}</p>
+										<img src="{{list.img_id}}"> {{list.name}}
+										<p id="location_participate " class="mui-ellipsis ">期号:&nbsp;{{list.id}}</p>
 										<p id="location_participate " class="mui-ellipsis ">本期参与:&nbsp;********</p>
 									</div>
 									<div class="item item-button-right" style="border-width: 0;border-top-width: 1px;">
-										<a id="luck_code" style="  float: right;margin-right: 40px;">剩余{{list.code}}人次</a>
-										<button class="button  button-outline button-small button-assertive" style="color: red; border-radius: 2px;">计算详情</button>
+										<a id="luck_code" style="  float: right;margin-right: 24px;">剩余{{list.num}}人次</a>
+										<button class="button  button-outline button-small button-assertive" style="right: 0px; color: red; border-radius: 2px;">继续夺宝</button>
 									</div>
 								</div>
 							</ion-list>
@@ -113,20 +112,19 @@
 
 				<ion-tab title="已揭晓 ">
 					<ion-view>
-						<ion-content style="background-color: #D9D9D9;">
+						<ion-content style="background-color: #D9D9D9;margin-bottom: 40px;">
 							<ion-list scroll="false">
-								<div class="item" ng-repeat="list in carouseList | filter: {code : '002'}" style="padding-bottom: 0px;border-width: 0;margin-bottom: 6px;">
-									<div class="item item-avatar " style="border-width: 0px;">
-										<img src="{{list.img_id}} ">
-										<h2>获得者:<a style="color: #e42112; ">&nbsp;用户名:&nbsp;{{list.name}}</a></h2>
-										<p id="location_participate " class="mui-ellipsis ">期号:&nbsp;{{list.code}}</p>
-					
+								<div class="item" ng-repeat="list in carouseList | filter: {state : '2'}" style="padding-bottom: 0px;border-width: 0;margin-bottom: 6px;">
+									<div class="item item-avatar item-text-wrap" style="border-width: 0px;">
+										<img src="{{list.img_id}}"> {{list.name}}
+										<p id="location_participate " class="mui-ellipsis ">期号:&nbsp;{{list.id}}</p>
+
 										<p id="location_participate " class="mui-ellipsis ">本期参与:&nbsp;********</p>
-					
+
 									</div>
 									<div class="item item-button-right" style="border-width: 0;border-top-width: 1px;">
-										<a id="luck_code" style="  float: right;margin-right: 40px;">剩余{{list.code}}人次</a>
-										<button class="button button-outline button-assertive" style="color: red; border-radius: 2px;">计算详情</button>
+										获得者{{list.num}}
+										<button class="button  button-outline button-small button-assertive" style="right: 0px;color: red; border-radius: 2px;">{{list.orderstate=="1"?"已砍价,去购买":"去砍价"}}</button>
 									</div>
 								</div>
 							</ion-list>
@@ -136,20 +134,20 @@
 
 				<ion-tab title="中奖纪录 ">
 					<ion-view>
-						<ion-content style="background-color: #D9D9D9;">
+						<ion-content style="background-color: #D9D9D9;margin-bottom: 40px;">
 							<ion-list scroll="false">
-								<div class="item" ng-repeat="list in carouseList | filter: {code : '003'}" style="padding-bottom: 0px;border-width: 0;margin-bottom: 6px;">
-									<div class="item item-avatar " style="border-width: 0px;">
-										<img src="{{list.img_id}} ">
-										<h2>获得者:<a style="color: #e42112; ">&nbsp;用户名:&nbsp;{{list.name}}</a></h2>
+								<div class="item" ng-repeat="list in carouseList | filter: {state : '3'}" style="padding-bottom: 0px;border-width: 0;margin-bottom: 6px;">
+									<div class="item item-avatar item-text-wrap" style="border-width: 0px;">
+										<img src="{{list.img_id}}"> {{list.name}}
 										<p id="location_participate " class="mui-ellipsis ">期号:&nbsp;{{list.code}}</p>
-							
+
 										<p id="location_participate " class="mui-ellipsis ">本期参与:&nbsp;********</p>
-					
+
 									</div>
-									<div class="item item-button-right" style="border-width: 0;border-top-width: 1px;">
-										<a id="luck_code" style="  float: right;margin-right: 40px;">剩余{{list.code}}人次</a>
-										<button class="button button-outline button-assertive" style="color: red; border-radius: 2px;">计算详情</button>
+									<div class="item item-button-right" style="border-width: 0;border-top-width: 1px;padding-right: 0px;">
+										获得者{{list.num}}
+										<span class="item-note" style="display: {{list.orderstate=='3'?'none':''}};">{{list.orderstate=="1"?"待收货":"已收货"}}</span>
+										<button class="button  button-outline button-small button-assertive" style="right: 0px;display: {{list.orderstate!='3'?'none':''}};color: red; border-radius: 2px;">填写物流地址</button>
 									</div>
 								</div>
 							</ion-list>
