@@ -8,6 +8,7 @@
 		<script type="text/javascript">
 			var app = angular.module('ionicApp', ['ionic'])
 			app.controller('actionsheetCtl', ['$scope', '$timeout', '$http', '$ionicScrollDelegate', function($scope, $timeout, $http, $ionicScrollDelegate) {
+
 				$scope.carouseList = [{
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
 					img_id: 'product.html',
@@ -30,8 +31,11 @@
 							$scope.$broadcast('scroll.refreshComplete');
 						});
 				};
+				$http.get("http://192.168.1.71:8081/").success(function(response) {
+					$scope.httpcontent = response;
+				});
 			}]);
-			app.controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
+			app.controller('IntroCtrl', function($scope, $state, $http, $ionicSlideBoxDelegate) {
 				//为了验证属性active-slide定义的模型，angularjs是mvc模式
 				$scope.carouseList = [{
 					url: 'http://img3.csmall.com/webPublicity/banner/640_280/5371a63759ed6.jpg',
@@ -94,9 +98,9 @@
 
 	<body style="max-width: 640px;">
 		<div class="bar bar-header bar-dark">
-			<button class="button button-icon icon ion-chevron-left"></button>
+			<a class="button icon-left ion-chevron-left button-dark" onclick="javascript: history.go(-1);"></a>
 			<div class="h1 title">一元夺宝</div>
-			<button class="button button-icon icon ion-person" onclick="window.location.href='indianarecord.html'"></button>
+			<a class="button icon-left ion-person button-dark" onclick="window.location.href='indianarecord.html'"></a>
 		</div>
 		<ion-content ng-app="ionicApp" zooming="true" direction="y" scrollbar-y="false" class="content has-header">
 			<div class="content" ng-controller="IntroCtrl">
@@ -115,7 +119,7 @@
 							<a href="{{list.img_id}}"><img src="{{list.url}}"></a>
 						</div>
 						<a class="item item-left-editable " href="{{list.img_id}}">
-							{{list.name}}
+							{{list.name}}{{httpcontent}}
 						</a>
 					</div>
 				</div>
